@@ -1,7 +1,7 @@
 new Vue({
   el: '#root',
   data:{
-    available: false,
+    available: true,
     nearby: false
   },
 
