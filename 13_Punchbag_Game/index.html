@@ -9,11 +9,18 @@
   <body>
     <div id="root">
       <!-- bag image -->
-      <div id="bag">
+      <div class="">
+        <h1>Kum Torbası</h1>
+      </div>
+      <div id="bag" v-bind:class="{burst: ended}">
 
       </div>
       <!-- bag healt -->
+      <div style="margin:0 auto 20px auto;">
+        {{healt}}
+      </div>
       <div id="bag-healt">
+
         <div v-bind:style="{width: healt + '%'}"></div>
       </div>
       <!-- game controls -->

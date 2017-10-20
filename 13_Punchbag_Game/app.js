@@ -8,10 +8,10 @@ new Vue({
   methods:{
     punch:function(){
       this.healt -= 10;
-      swal(String(this.healt))
+      //swal(String(this.healt))
       if (this.healt <= 0 ) {
         this.ended = true
-
+        swal('Tebrikler Kum Torbası gücüne dayanamadı!')
       }
     },
     restart:function(){
