@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue 101</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.css">
+  </head>
+  <body>
+    <div id="root">
+      <!-- bag image -->
+      <div id="bag">
+
+      </div>
+      <!-- bag healt -->
+      <div id="bag-healt">
+        <div v-bind:style="{width: healt + '%'}"></div>
+      </div>
+      <!-- game controls -->
+      <div id="controls">
+        <button v-on:click="punch" v-show="!ended">Punch</button>
+        <button v-on:click="restart">Restart</button>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.all.min.js" charset="utf-8"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
