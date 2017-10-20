@@ -4,30 +4,74 @@
 <head>
   <meta charset="utf-8">
   <title>Vue 101</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <div id="root">
-    <h1>Looping through lists</h1>
+  <div class="container" id="root">
+    <div class="d-flex justify-content-center">
+      <h1>Looping through lists</h1>
+    </div>
+
 
     <!--{{characters[0]}}
     {{characters[1]}}
   -->
-    <ul>
-      <li v-for="character in characters">{{character}}</li>
-    </ul>
-    <hr>
-    <ul>
-      <li v-for="ninja in ninjas">Name: {{ninja.name}} - <small>Age: {{ninja.age}}</small></li>
-    </ul>
-    <hr>
-    <ul>
-      <li v-for="(ninja,index) in ninjas">{{index }} - Name: {{ninja.name}} - <small>Age: {{ninja.age}}</small></li>
-    </ul>
+    <div class="row">
+      <div class="col-md-6">
+        <ul>
+          <li>{ { character } }</li>
+          <li v-for="character in characters">{{character}}</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <ul>
+          <li>{ { character,index } }</li>
+          <li v-for="(character,index) in characters">{{index}} . {{character}}</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <ul>
+          <li v-for="ninja in ninjas">Name: {{ninja.name}} - <small>Age: {{ninja.age}}</small></li>
+        </ul>
+      </div>
+      <hr size="50">
+      <div class="col-md-6">
+        <li v-for="(ninja,index) in ninjas">{{index }} - Name: {{ninja.name}} - <small>Age: {{ninja.age}}</small></li>
+      </div>
+    </div>
+
+    <div class="row">
 
 
+      <template v-for="ninja in ninjas">
+
+        <div class="card col-md-3">
+
+          <img v-bind:src="ninja.image.url" class="img-responsive" alt="" v-bind:width="ninja.image.width" v-bind:height="ninja.image.height">
+          <div class="card-block">
+            <h4 class="card-title">{{ninja.name}} - {{ninja.age}}</h4>
+            <p class="card-text"></p>
+          </div>
+        </div>
+
+      </template>
+<hr>
+      <template v-for="ninja in ninjas">
+        <ul>
+        <li v-for="(value,key) in ninja">{{key}}  ## <template v-if="key != 'image'">{{value}}</template>
+          <i v-if="key == 'image'">Width: {{value.width}} or Height: {{value.height}}</i>
+        </li>
+        </ul>
+
+      </template>
+    </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/vue"></script>
   <script src="app.js"></script>
 </body>
