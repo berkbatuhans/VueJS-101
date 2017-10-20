@@ -11,6 +11,6 @@ span{
 }
 
 .nearby span:after{
-  content: "nearby";
+  content: "nearby - berk";
   margin-left: 10px;
 }

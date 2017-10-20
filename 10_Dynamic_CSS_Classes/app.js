@@ -1,11 +1,19 @@
 new Vue({
   el: '#root',
   data:{
-    available: true,
+    available: false,
     nearby: false
   },
 
   methods:{
 
+  },
+  computed:{
+    compClasses: function(){
+      return{
+        available: this.available,
+        nearby: this.nearby
+      }
+    }
   }
 });
