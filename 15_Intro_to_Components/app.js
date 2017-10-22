@@ -1,8 +1,12 @@
+var data = {
+  name: 'Yoshi'
+}
+
 Vue.component('greeting',{
-  template: '<p>Hey there, I am a re-usable component {{name}}</p>',
+  template: '<p>Hey there, I am a re-usable component {{name}} <button v-on:click="changeName">Change Name</button></p>',
   data:function(){
     return {
-      name: 'Yoshi'
+      name: data;
     }
   },
   methods:{
