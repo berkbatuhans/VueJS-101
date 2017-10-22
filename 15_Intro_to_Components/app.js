@@ -3,10 +3,10 @@ var data = {
 }
 
 Vue.component('greeting',{
-  template: '<p>Hey there, I am a re-usable component {{name}} <button v-on:click="changeName">Change Name</button></p>',
+  template: '<p>Hey there, I am a re-usable component <template v-for="names in name">{{names.toUpperCase() }} ## {{names.toLowerCase() }}<hr/> </template> <button v-on:click="changeName">Change Name</button></p>',
   data:function(){
     return {
-      name: data.name 
+      name: data.name
     }
   },
   methods:{
