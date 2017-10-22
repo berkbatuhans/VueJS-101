@@ -7,6 +7,6 @@ new Vue({
 
   },
   computed:{
-    
+
   }
 });
