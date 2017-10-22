@@ -4,6 +4,9 @@ new Vue({
   },
 
   methods:{
+
+  },
+  computed:{
     
   }
 });
