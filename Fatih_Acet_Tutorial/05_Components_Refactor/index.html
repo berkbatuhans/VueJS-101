@@ -12,9 +12,9 @@
     <p v-if="isLoading">Loading</p>
   <p v-if="!cart.length">No item in cart.</p>
 
-    <vue-cart :cart=cart title="Shopping Cart" type="shoppingCart"></vue-cart>
+    <vue-cart :cart=cart title="Shopping Cart" type="shoppingCart" v-on:ItemChangedOnCart="handleItemChange"></vue-cart>
 
-    <vue-cart :cart=saved title="Saved for later" type="savedCart"></vue-cart>
+    <vue-cart :cart=saved title="Saved for later" type="savedCart" v-on:ItemChangedOnCart="handleItemChange"></vue-cart>
   </div>
   <script src="https://unpkg.com/vue"></script>
   <script src="app.js"></script>

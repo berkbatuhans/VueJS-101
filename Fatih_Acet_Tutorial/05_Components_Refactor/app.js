@@ -11,7 +11,11 @@ Vue.component('VueCart',{
     // Delete butonuna tıklayınca tetiklenecek olan method
     // cart içerisinden siler
     removeFromCart(index) {
-      this.cart.splice(index, 1);
+      return this.cart.splice(index, 1);
+    },
+    changeCart(index){
+      const item = this.removeFromCart(index);
+      this.$emit('ItemChangedOnCart',item[0],this.type);
     }
   },
   computed: {
@@ -52,8 +56,8 @@ Vue.component('VueCart',{
         <p class="shipping" v-if="item.isEligible">Eligible for FREE Shipping & FREE Returns</p>
         <a href="#" v-on:click="removeFromCart(index)">Delete</a>
 
-        <a href="#" class="secondary" v-on:click="saveForLater(index)" v-if="isShoppingCart">Save for later</a>
-        <a href="#" class="secondary" v-on:click="saveForLater(index)" v-if="isSavedCart">Moved to cart</a>
+        <a href="#" class="secondary" v-on:click="changeCart(index)" v-if="isShoppingCart">Save for later</a>
+        <a href="#" class="secondary" v-on:click="changeCart(index)" v-if="isSavedCart">Moved to cart</a>
       </div>
       <p class="price">\${{item.price}}</p>
     </div>
