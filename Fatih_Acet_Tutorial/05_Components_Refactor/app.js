@@ -15,7 +15,7 @@ Vue.component('VueCart',{
     },
     changeCart(index){
       const item = this.removeFromCart(index);
-      this.$emit('ItemChangedOnCart',item[0],this.type);
+      this.$emit('itemchangedoncart',item[0],this.type);
     }
   },
   computed: {
@@ -78,25 +78,8 @@ new Vue({
     saved: []
   },
   methods: {
-    removeFromCart(index) {
-      this.cart.splice(index, 1);
-    },
-    saveForLater(index) {
-      const item = this.cart.splice(index, 1);
-      this.saved.push(item[0]);
-    },
-    moveToCart(index) {
-      const item = this.saved.splice(index, 1);
-      this.cart.push(item[0]);
-    }
-  },
-  computed: {
-    cartTotal() {
-      let total = 0;
-      this.cart.forEach((item) => {
-        total += parseFloat(item.price, 10)
-      });
-      return total.toFixed(2);
+    handleItemChange(item, cartType){
+      console.log(item,cartType);
     }
   },
   created() {
