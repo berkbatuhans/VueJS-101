@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue 101</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="root">
+    <p v-if="isLoading">Loading</p>
+  <p v-if="!cart.length">No item in cart.</p>
+
+    <vue-cart :cart=cart title="Shopping Cart" type="shoppingCart"></vue-cart>
+
+    <vue-cart :cart=saved title="Saved for later" type="savedCart"></vue-cart>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
