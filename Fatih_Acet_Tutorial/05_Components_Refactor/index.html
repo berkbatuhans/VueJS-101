@@ -10,7 +10,7 @@
 <body>
   <div id="root">
     <p v-if="isLoading">Loading</p>
-  <p v-if="!cart.length">No item in cart.</p>
+  
 
     <vue-cart :cart=cart title="Shopping Cart" type="shoppingCart" v-on:itemchangedoncart="handleItemChange"></vue-cart>
 

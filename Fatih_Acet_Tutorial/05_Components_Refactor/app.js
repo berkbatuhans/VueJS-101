@@ -61,7 +61,7 @@ Vue.component('VueCart',{
       </div>
       <p class="price">\${{item.price}}</p>
     </div>
-    <div class="subtotal">
+    <div class="subtotal" v-if="cart.length">
       Subtotal ({{cart.length}} items): <span class="price">\${{cartTotal}}</span>
     </div>
   </div>
@@ -79,7 +79,11 @@ new Vue({
   },
   methods: {
     handleItemChange(item, cartType){
-      console.log(item,cartType);
+      if (cartType === 'shoppingCart') {
+        this.saved.push(item);
+      }else {
+        this.cart.push(item);
+      }
     }
   },
   created() {
