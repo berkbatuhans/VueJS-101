@@ -1,8 +1,3 @@
-<template>
-  <img
-  :src="imagePath"
-  class="backdrop-image" />
-</template>
 
 <script>
 export default {
@@ -19,6 +14,12 @@ export default {
   }
 }
 </script>
+
+<template>
+  <img
+  :src="imagePath"
+  class="backdrop-image" />
+</template>
 
 <style>
 .backdrop-image {

@@ -1,5 +1,5 @@
 <template>
-  <img :src="posterPath" />
+  <img :src="posterPath" class="poster" />
 </template>
 
 <script>
@@ -18,5 +18,8 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style>
+  .poster{
+    width: 100%;
+  }
 </style>

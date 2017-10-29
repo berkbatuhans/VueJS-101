@@ -9,9 +9,6 @@ export default {
     }
   },
   computed:{
-    posterPath(){
-      return `https://image.tmdb.org/t/p/w500/${this.movie.poster_path}`;
-    },
     movieDetailsPath(){
       return `/movie/${this.movie.id}`;
     }
@@ -26,7 +23,7 @@ export default {
 
   <div class="card">
     <router-link :to="movieDetailsPath">
-    <poster :class="card-img-top" :posterName="movie.poster_path" :alt="movie.original_title" />
+    <poster class="card-img-top" :posterName="movie.poster_path" :alt="movie.original_title" />
     <div class="card-block">
       <h4 class="card-title">{{movie.original_title}}</h4>
       <p class="card-text">{{movie.overview}}</p>
@@ -43,8 +40,5 @@ export default {
 .card {
   min-width: 250px;
   margin-bottom: 30px;
-}
-.card img {
-  width: 100%;
 }
 </style>
