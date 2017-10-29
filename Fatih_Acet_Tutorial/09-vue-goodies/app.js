@@ -1,22 +1,22 @@
 new Vue({
   el: '#vmodel',
-  data:{
+  data: {
     message: 'Hello World',
     selectedVal: 'foo',
     isSelected: true
   },
 
-  methods:{
-    log(){
+  methods: {
+    log() {
       console.log(`"${this.message}"`)
     },
-    setValue(){
-      this.message= 'World World'
+    setValue() {
+      this.message = 'World World'
       this.selectedVal = 'baz'
       this.isSelected = false
     }
   },
-  computed:{
+  computed: {
 
   }
 });
@@ -24,14 +24,18 @@ new Vue({
 setTimeout(() => {
   new Vue({
     el: '#vcloak',
-    data:{
-      users: [ { name:'Berk '},  {name: 'Ayşe'}]
+    data: {
+      users: [{
+        name: 'Berk '
+      }, {
+        name: 'Ayşe'
+      }]
     }
   });
 
-},3000)
+}, 3000)
 
-Vue.component('v-select',{
+Vue.component('v-select', {
   template: `
   <select>
     <slot></slot>
@@ -39,7 +43,7 @@ Vue.component('v-select',{
   `
 })
 
-Vue.component('v-option',{
+Vue.component('v-option', {
   props: ['value'],
   template: `
   <option>{{value}}</option>
@@ -52,14 +56,14 @@ new Vue({
 
 new Vue({
   el: '#nextTick',
-  data:{
+  data: {
     message: 'Hello'
   },
   methods: {
-    change(){
+    change() {
       this.message = 'Hello World';
-console.log(document.querySelector('#nextTick').innerText);
-      this.$nextTick(() =>{
+      console.log(document.querySelector('#nextTick').innerText);
+      this.$nextTick(() => {
         console.log(document.querySelector('#nextTick').innerText);
       })
     }
@@ -68,26 +72,26 @@ console.log(document.querySelector('#nextTick').innerText);
 Vue.config.keyCodes.a = 65;
 new Vue({
   el: '#modifiers',
-  methods:{
-    log(e){
+  methods: {
+    log(e) {
       e.preventDefault();
       console.log('Fooooo')
     }
   }
 })
-
+Vue.filter('withTax',
+  (price) => {
+    return `${(price * 1.18).toFixed(2)}  tl`;
+  })
 new Vue({
   el: '#filters',
   data: {
     name: 'logitech camera',
     price: 25
   },
-  filters:{
-    uppercase(text){
+  filters: {
+    uppercase(text) {
       return text.toUpperCase();
-    },
-    withTax(price){
-      return `${(price * 1.18).toFixed(2)}  tl`;
     }
   }
 })
