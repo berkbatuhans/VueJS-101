@@ -17,7 +17,8 @@ export default {
   },
   computed:{
     ...mapGetters([
-      'movies'
+      'movies',
+      'groupedMovies',
   ])
   },
   created(){
@@ -33,10 +34,16 @@ export default {
 
   <app-header />
   <loader v-if="isLoading" />
-  <movie v-for="movie in movies" key="movie.id"/>
+  <section class="container py-5">
+    <div v-for="group in groupedMovies" class="card-deck">
+      <movie v-for="movie in group" key="movie.id" :movie="movie" />
+    </div>
+  </section>
   </section>
 </template>
 
 
 <style>
+.card-deck{
+}
 </style>
