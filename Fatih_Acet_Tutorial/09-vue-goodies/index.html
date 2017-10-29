@@ -29,7 +29,7 @@
       </ul>
     </div>
 
-    <div id="slots">
+    <div id="slots" class="hidden">
       <v-select option>
         <v-option value="Foo"></v-option>
         <v-option value="Bar"></v-option>
@@ -37,14 +37,35 @@
       </v-select>
     </div>
 
-    <div id="nextTick">
+    <div id="nextTick" class="hidden">
       {{message}}
       <button @click="change">Change message</button>
     </div>
 
-    <div id="modifiers">
-      <a href="/foo" @click="log($event)">go to foo</a>
-      <button @click="log"> </button>
+    <div id="modifiers" class="hidden">
+      <a href="/foo" @click.prevent="log">go to foo</a>
+      <button @click.once="log"> Button </button>
+
+      <button @click.alt="log"> Button </button>
+
+      Her basıldığında: <input type="text" @keyup="log"> <br/>
+      Enter E basıldığında:
+      <input type="text" @keyup.enter="log"> <br/>
+      Alt Enter :
+      <input type="text" @keyup.alt.enter="log"> <br/>
+      Alt Shift Enter
+      <input type="text" @keyup.alt.shift.enter="log"> <br>
+      <!-- A tuşuna basıldığında
+        Vue.config.keyCodes.a = 65; yazılırsa a olarak kullanılabilir.
+     -->
+      A Basıldığında
+      <input type="text" @keyup.65="log">
+      <input type="text" @keyup.a="log">
+    </div>
+
+    <div id="filters">
+      <p>{{name | uppercase }}</p>
+      <p>{{price | withTax | uppercase}}</p>
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script src="app.js"></script>

@@ -65,13 +65,29 @@ console.log(document.querySelector('#nextTick').innerText);
     }
   }
 })
-
+Vue.config.keyCodes.a = 65;
 new Vue({
   el: '#modifiers',
   methods:{
     log(e){
       e.preventDefault();
       console.log('Fooooo')
+    }
+  }
+})
+
+new Vue({
+  el: '#filters',
+  data: {
+    name: 'logitech camera',
+    price: 25
+  },
+  filters:{
+    uppercase(text){
+      return text.toUpperCase();
+    },
+    withTax(price){
+      return `${(price * 1.18).toFixed(2)}  tl`;
     }
   }
 })
