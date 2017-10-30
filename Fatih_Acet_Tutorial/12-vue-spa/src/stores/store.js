@@ -3,6 +3,8 @@ import service from '../services/service';
 const state = {
   movies: [],
   movieDetails: {},
+  halls: {},
+  ticketPrices: {},
 };
 
 const getters = {
@@ -22,6 +24,12 @@ const getters = {
     return grouped;
 
   },
+  halls(state){
+    return state.halls;
+  },
+  ticketPrices(state){
+    return state.ticketPrices;
+  },
 };
 
 const mutations = {
@@ -31,6 +39,12 @@ const mutations = {
   setMovieDetails(state, payload){
     const { id, data } = payload;
     state.movieDetails[id] = data;
+  },
+  setHalls(state,halls){
+    state.halls = halls;
+  },
+  setTicketPrices(state,ticketPrices){
+    state.ticketPrices = ticketPrices
   },
 };
 
@@ -48,6 +62,16 @@ const actions = {
       });
     });
   },
+  fetchHalls(context){
+    return service.fetchHalls().then((snapshot) => {
+      context.commit('setHalls',snapshot.val());
+    });
+  },
+  fetchTicketPrices(context){
+    return service.fetchTicketPrices().then((snapshot) => {
+      context.commit('setTicketPrices',snapshot.val());
+    });
+  }
 };
 
 export default {

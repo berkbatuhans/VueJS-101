@@ -29,7 +29,7 @@ export default {
       <p class="card-text">{{movie.overview}}</p>
     </div>
     <div class="card-footer">
-      <small class="text-muted">Avarage Rating: {{movie.vote_average.toFixed(2)}}</small>
+      <small class="text-muted">Avarage Rating: {{movie.vote_average.toFixed(1)}}</small>
     </div>
     </router-link>
   </div>
