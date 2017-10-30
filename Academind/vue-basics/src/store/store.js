@@ -40,15 +40,15 @@ const mutations ={
         };
         state.registrations.push(registration);
     },
-    unregister(state, userId){
-        const user = state.users.find(user=> {
-            return user.id == ;
+    unregister(state, payload){
+        const user = state.users.find(user => {
+            return user.id == payload.userId;
         });
         user.registered = false;
-        const registration = state.registrations.findIndex(registration => {
-            registration.userId == userId;
+        const registration = state.registrations.find(registration => {
+            return registration.userId == payload.userId;
         });
-        this.registrations.splice(state.registrations.indexOf(registration),1);
+        state.registrations.splice(state.registrations.indexOf(registration),1);
     }
 };
 const actions ={};
