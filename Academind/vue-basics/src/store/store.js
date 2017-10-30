@@ -26,7 +26,31 @@ const getters = {
     }
 
 };
-const mutations ={};
+const mutations ={
+    register(state, userId){
+        const date = new Date;
+        const user = state.users.find(user=> {
+            return user.id == userId;
+        });
+        user.registered = true;
+        const registration = {
+          userId: userId,
+            name: user.name,
+            date: date.getMonth() + '/' + date.getDay()
+        };
+        state.registrations.push(registration);
+    },
+    unregister(state, userId){
+        const user = state.users.find(user=> {
+            return user.id == ;
+        });
+        user.registered = false;
+        const registration = state.registrations.findIndex(registration => {
+            registration.userId == userId;
+        });
+        this.registrations.splice(state.registrations.indexOf(registration),1);
+    }
+};
 const actions ={};
 export const store = new Vuex.Store({
     state: state,
