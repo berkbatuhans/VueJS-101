@@ -1,7 +1,11 @@
 <script>
+import VSelect from './HelperComponents/Select.vue';
+import VOption from './HelperComponents/Option.vue';
 export default {
   data() {
-    return {}
+    return {
+      totalPrice: 0,
+    }
   },
   computed:{
     ticketPrices(){
@@ -15,6 +19,17 @@ export default {
       this.hasDetails = true;
     });
   },
+  components:{
+    VSelect,
+    VOption,
+  },
+  methods:{
+    onChange (event) {
+      console.log(event.target.value)
+      console.log("seçildi.")
+      //this.$emit('totalPrice',selected)
+    }
+  }
 }
 </script>
 <template>
@@ -23,12 +38,14 @@ export default {
       <tr v-for="ticket in ticketPrices">
         <td>{{ticket.label}}</td>
         <td>{{ticket.price}} TL</td>
-        <td><select>
-            <option value="">Adet</option>
-            <option value="1">1</option>
-            <option value="1">1</option>
-            <option value="1">1</option>
-        </select>
+        <td>
+        <v-select>
+          <v-option value="Adet"></v-option>
+          <v-option v-for="n in 10" :value="n" :key="n"></v-option>
+        </v-select>
+      </td>
+      <td>
+        {{ticket.price}}
       </td>
       </tr>
     </table>
