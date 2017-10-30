@@ -29,10 +29,12 @@
             }
         },
 
-        computed: mapGetters({
-            registrations: 'registrations',
-            total: 'totalRegistrations',
-        })
+        computed: {
+            ...mapGetters({
+                registrations: 'registrations',
+                total: 'totalRegistrations',
+            })
+        }
     }
 </script>
 
