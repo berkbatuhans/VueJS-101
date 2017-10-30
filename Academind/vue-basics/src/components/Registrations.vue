@@ -2,7 +2,7 @@
 <div id="registrations">
   <div class="summary">
     <h3>Registrations</h3>
-    <h5>Total: {{ total }}</h5>
+    <h5>Total: {{total}}</h5>
   </div>
   <hr>
   <div class="row" v-for="registration in registrations">
@@ -16,24 +16,25 @@
 </template>
 
 <script>
+
 export default {
 
   methods:{
     unregister(registration){
         const user = this.$store.state.users.find(user => {
-            return user.id == registration.userId;
+            return user.id === registration.userId;
         });
         user.registered = false;
         this.$store.state.registrations.splice(this.$store.state.registrations.indexOf(registration),1);
     }
   },
   computed:{
-    total(){
-      return this.$store.state.registrations.length;
-    },
       registrations(){
-        return this.$store.state.registrations;
-      }
+          return this.$store.getters.registrations;
+      },
+      total(){
+      return this.$store.getters.totalRegistrations;
+      },
   }
 }
 </script>
