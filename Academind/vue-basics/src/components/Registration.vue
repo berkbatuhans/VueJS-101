@@ -4,7 +4,7 @@
   <hr>
   <div class="row" v-for="user in users">
     <h4>{{user.name}}</h4>
-    <button @click="registerUser(user)">Register</button>
+    <button @click.once="registerUser(user)">Register</button>
   </div>
 </div>
 </template>
