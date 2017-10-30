@@ -17,16 +17,23 @@
 
 <script>
 export default {
-  props:['registrations'],
+
   methods:{
     unregister(registration){
-      this.$emit('userUnregister',registration);
+        const user = this.$store.state.users.find(user => {
+            return user.id == registration.userId;
+        });
+        user.registered = false;
+        this.$store.state.registrations.splice(this.$store.state.registrations.indexOf(registration),1);
     }
   },
   computed:{
     total(){
-      return this.registrations.length;
-    }
+      return this.$store.state.registrations.length;
+    },
+      registrations(){
+        return this.$store.state.registrations;
+      }
   }
 }
 </script>

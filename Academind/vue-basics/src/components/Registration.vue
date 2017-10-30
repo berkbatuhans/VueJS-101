@@ -11,11 +11,17 @@
 
 <script>
 export default {
-  props: ['users'],
+  computed:{
+      users(){
+        return this.$store.state.users;
+      }
+  },
   methods: {
     registerUser(user){
-      this.$emit('userRegistered',user);
-      user.registered = true;
+
+        const date = new Date;
+        user.registered = true;
+        this.$store.state.registrations.push({userId: user.id, name: user.name, date:date.getMonth() + '/' + date.getDay()})
     }
   }
 }
